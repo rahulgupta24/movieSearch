@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '';
+const apiKey = '7b75ecdd';
 
 // DOM elements
 const searchInput = document.getElementById('searchInput');
@@ -12,6 +12,9 @@ const searchResults = document.getElementById('searchResults');
 const favoritesList = document.getElementById('favoritesList');
 const detailsContainer = document.getElementById('movieDetailsContainer');
 
+
+// Get the base URL of the current environment
+const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
 // Add event listeners
 if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
@@ -19,7 +22,7 @@ if (searchButton) {
 
 if (viewFavoritesButton) {
     viewFavoritesButton.addEventListener('click', () => {
-        window.location.href = 'my-favorites.html';
+        window.location.href = baseURL + 'my-favorites.html';
     });
 }
 
@@ -43,6 +46,7 @@ async function searchMovies() {
     // Delay the search by a short duration to wait for user input
     searchTimeout = setTimeout(async () => {
         const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchTerm}`);
+        console.log('repsonse',)
         const data = await response.json();
 
         mainContent.innerHTML = '';
@@ -106,7 +110,7 @@ if (window.location.pathname.includes('/movie-details.html')) {
 
 // Function to add a movie to favorites
 function addToFavorites(movie, button, isSearchResult) {
-    const favorites = JSON.parse(localStorage.getItem('movieSearch'+'favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
     const isAlreadyAdded = favorites.some(favMovie => favMovie.imdbID === movie.imdbID);
 
     if (!isAlreadyAdded) {
