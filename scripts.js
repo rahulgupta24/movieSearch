@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 // DOM elements
 const searchInput = document.getElementById('searchInput');
@@ -106,7 +106,7 @@ if (window.location.pathname.includes('/movie-details.html')) {
 
 // Function to add a movie to favorites
 function addToFavorites(movie, button, isSearchResult) {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(localStorage.getItem('movieSearch'+'favorites')) || [];
     const isAlreadyAdded = favorites.some(favMovie => favMovie.imdbID === movie.imdbID);
 
     if (!isAlreadyAdded) {

@@ -28,7 +28,7 @@ header {
   margin-right: 0.5rem;
 }
 
-#searchButton, #viewFavortiesButton {
+#searchButton {
   flex: 0.1;
   height: 100%; /* Set button height to match search input */
   color: white;
