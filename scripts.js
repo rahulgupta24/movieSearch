@@ -45,8 +45,9 @@ async function searchMovies() {
 
     // Delay the search by a short duration to wait for user input
     searchTimeout = setTimeout(async () => {
+        console.log('check 1')
         const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchTerm}`);
-        console.log('repsonse',)
+        console.log('response')
         const data = await response.json();
 
         mainContent.innerHTML = '';
@@ -88,12 +89,14 @@ function createMovieElement(movie, isSearchResult) {
     });
 
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    console.log('favorites>>>>>>',favorites);
     if (favorites.some(favMovie => favMovie.imdbID === movie.imdbID)) {
         addToFavoritesBtn.textContent = 'Added to Favorites';
         addToFavoritesBtn.disabled = true;
     }
-
+    
     const viewDetailsBtn = movieElement.querySelector('.view-details');
+    console.log('viewDetails',viewDetailsBtn);
     viewDetailsBtn.addEventListener('click', () => {
         window.location.href = `movie-details.html?id=${movie.imdbID}`;
     });
@@ -111,6 +114,7 @@ if (window.location.pathname.includes('/movie-details.html')) {
 // Function to add a movie to favorites
 function addToFavorites(movie, button, isSearchResult) {
     const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    console.log('favorites',favorites)
     const isAlreadyAdded = favorites.some(favMovie => favMovie.imdbID === movie.imdbID);
 
     if (!isAlreadyAdded) {
@@ -128,6 +132,7 @@ function addToFavorites(movie, button, isSearchResult) {
 
 // Function to display favorites
 function displayFavorites(favorites) {
+    console.log('favorites',favorites);
     favoritesList.innerHTML = '';
 
     if (favorites.length > 0) {
