@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 // DOM elements
 const searchInput = document.getElementById('searchInput');
@@ -15,7 +15,7 @@ const detailsContainer = document.getElementById('movieDetailsContainer');
 
 
 // Get the base URL of the current environment
-const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
+
 // Add event listeners
 if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
@@ -24,7 +24,7 @@ if (searchButton) {
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
-        window.location.href = baseURL + 'my-favorites.html';
+        window.location.href = 'my-favorites.html';
     });
 }
 
@@ -50,8 +50,9 @@ async function searchMovies() {
     searchTimeout = setTimeout(async () => {
         console.log('check 1')
         const response = await fetch(`https://www.omdbapi.com/?apikey=${apiKey}&s=${searchTerm}`);
-        console.log('response')
+        console.log('response', response )
         const data = await response.json();
+        console.log('Data:',data)
 
         mainContent.innerHTML = '';
 
