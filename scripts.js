@@ -10,6 +10,7 @@ const viewFavoritesButton = document.getElementById('viewFavoritesButton');
 const mainContent = document.getElementById('mainContent');
 const searchResults = document.getElementById('searchResults');
 const favoritesList = document.getElementById('favoritesList');
+console.log('favoritesList', favoritesList)
 const detailsContainer = document.getElementById('movieDetailsContainer');
 
 
@@ -21,6 +22,7 @@ if (searchButton) {
 }
 
 if (viewFavoritesButton) {
+    console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
         window.location.href = baseURL + 'my-favorites.html';
     });
@@ -30,6 +32,7 @@ if (viewFavoritesButton) {
 if (window.location.pathname === '/my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        console.log('fav',favorites);
         displayFavorites(favorites);
     });
 }
@@ -94,7 +97,7 @@ function createMovieElement(movie, isSearchResult) {
         addToFavoritesBtn.textContent = 'Added to Favorites';
         addToFavoritesBtn.disabled = true;
     }
-    
+
     const viewDetailsBtn = movieElement.querySelector('.view-details');
     console.log('viewDetails',viewDetailsBtn);
     viewDetailsBtn.addEventListener('click', () => {
@@ -132,7 +135,7 @@ function addToFavorites(movie, button, isSearchResult) {
 
 // Function to display favorites
 function displayFavorites(favorites) {
-    console.log('favorites',favorites);
+    console.log('favorites-----',favorites);
     favoritesList.innerHTML = '';
 
     if (favorites.length > 0) {
