@@ -30,9 +30,9 @@ const apiKey = '7b75ecdd';
     }
 
     // Add event listener on my-favorites.html
-    if (window.location.pathname === 'movieSearch/my-favorites.html') {
+    if (window.location.pathname === '/my-favorites.html') {
         document.addEventListener('DOMContentLoaded', () => {
-            const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+            const favorites = JSON.parse(localStorage.getItem('movieSearch'+'favorites')) || [];
             console.log('fav', favorites);
             displayFavorites(favorites);
         });
