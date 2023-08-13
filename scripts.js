@@ -118,11 +118,15 @@ function createMovieElement(movie, isSearchResult) {
 
     return movieElement;
 }
-
 // Add event listener on movie-details.html
 if (window.location.pathname.includes('/movie-details.html')) {
     document.addEventListener('DOMContentLoaded', () => {
-        viewMovieDetails();
+        const viewDetailsBtn = document.getElementById('viewDetails');
+        if (viewDetailsBtn) {
+            viewDetailsBtn.addEventListener('click', () => {
+                viewMovieDetails();
+            });
+        }
     });
 }
 
