@@ -1,5 +1,5 @@
 // scripts.js
-document.addEventListener("DOMContentLoaded", function (event) { 
+
 // Define apiKey
 const apiKey = '7b75ecdd';
 
@@ -22,12 +22,13 @@ if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
 }
 
-if (viewFavoritesButton) {
-    console.log('viewFavoritesButton', viewFavoritesButton)
-    viewFavoritesButton.addEventListener('click', () => {
-        window.location.href = 'my-favorites.html';
-    });
-}
+document.addEventListener('DOMContentLoaded', () => {
+    if (viewFavoritesButton) {
+        viewFavoritesButton.addEventListener('click', () => {
+            window.location.href = 'my-favorites.html';
+        });
+    }
+});
 
 // Add event listener on my-favorites.html
 if (window.location.pathname === './my-favorites.html') {
@@ -67,6 +68,7 @@ async function searchMovies() {
 }
 
 // Add event listener for keyup and Enter key press
+
 searchInput.addEventListener('keyup', searchMovies);
 
 // Listen for Enter key press and trigger search
@@ -196,4 +198,3 @@ async function viewMovieDetails() {
         <p><strong>Plot:</strong> ${movieDetails.Plot}</p>
     `;
 }
-})
