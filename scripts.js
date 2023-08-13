@@ -22,20 +22,15 @@ if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-    if (viewFavoritesButton) {
-        viewFavoritesButton.addEventListener('click', () => {
-            window.location.href = 'my-favorites.html';
-        });
-    }
-
-    if (searchInput) {
-        searchInput.addEventListener('keyup', searchMovies);
-    }
-});
+if (viewFavoritesButton) {
+    console.log('viewFavoritesButton', viewFavoritesButton)
+    viewFavoritesButton.addEventListener('click', () => {
+        window.location.href = 'my-favorites.html';
+    });
+}
 
 // Add event listener on my-favorites.html
-if (window.location.pathname === './my-favorites.html') {
+if (window.location.pathname === '/my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         console.log('fav', favorites);
@@ -72,8 +67,8 @@ async function searchMovies() {
 }
 
 // Add event listener for keyup and Enter key press
+searchInput.addEventListener('keyup', searchMovies);
 
-//searchInput.addEventListener('keyup', searchMovies);
 // Listen for Enter key press and trigger search
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
@@ -115,7 +110,7 @@ function createMovieElement(movie, isSearchResult) {
 }
 
 // Add event listener on movie-details.html
-if (window.location.pathname.includes('./movie-details.html')) {
+if (window.location.pathname.includes('/movie-details.html')) {
     document.addEventListener('DOMContentLoaded', () => {
         viewMovieDetails();
     });
