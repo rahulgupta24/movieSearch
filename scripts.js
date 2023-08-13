@@ -17,10 +17,7 @@ const detailsContainer = document.getElementById('movieDetailsContainer');
 
 // Get the base URL of the current environment
 
-// Add event listeners
-if (searchButton) {
-    searchButton.addEventListener('click', searchMovies);
-}
+
 
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
@@ -64,6 +61,10 @@ async function searchMovies() {
             });
         }
     }, 300); // Adjust the delay duration as needed
+}
+// Add event listeners
+if (searchButton) {
+    searchButton.addEventListener('click', searchMovies);
 }
 
 // Add event listener for keyup and Enter key press
