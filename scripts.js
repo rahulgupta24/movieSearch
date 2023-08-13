@@ -22,12 +22,15 @@ if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
 }
 
+// Add event listeners
+document.addEventListener('DOMContentLoaded', () => {
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
         window.location.href = 'my-favorites.html';
     });
 }
+});
 
 // Add event listener on my-favorites.html
 if (window.location.pathname === '/my-favorites.html') {
