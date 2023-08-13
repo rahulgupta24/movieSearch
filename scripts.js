@@ -11,7 +11,6 @@ const searchButton = document.getElementById('searchButton');
 const mainContent = document.getElementById('mainContent');
 const searchResults = document.getElementById('searchResults');
 const favoritesList = document.getElementById('favoritesList');
-
 const viewFavoritesButton = document.querySelector('#viewFavoritesButton');
 console.log('favoritesList', favoritesList)
 const detailsContainer = document.getElementById('movieDetailsContainer');
