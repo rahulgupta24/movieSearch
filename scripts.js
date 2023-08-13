@@ -20,7 +20,6 @@ const detailsContainer = document.getElementById('movieDetailsContainer');
 
 
 // Get the base URL of the current environment
-document.addEventListener('DOMContentLoaded', () => {
 // Add event listeners
 if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
