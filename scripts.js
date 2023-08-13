@@ -1,7 +1,7 @@
 // scripts.js
-
+document.addEventListener('DOMContentLoaded', () => {
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 
     // DOM elements
@@ -198,3 +198,5 @@ const apiKey = '7b75ecdd';
         <p><strong>Plot:</strong> ${movieDetails.Plot}</p>
     `;
     }
+
+})
