@@ -6,6 +6,9 @@ const apiKey = '7b75ecdd';
 // Function to construct the correct URL based on the environment
 
 const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
+function constructURL(path) {
+    return baseURL + path;
+}
 
 // DOM elements
 const searchInput = document.getElementById('searchInput');
