@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 
 // DOM elements
