@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 
 // DOM elements
@@ -27,6 +27,10 @@ document.addEventListener('DOMContentLoaded', () => {
         viewFavoritesButton.addEventListener('click', () => {
             window.location.href = 'my-favorites.html';
         });
+    }
+
+    if (searchInput) {
+        searchInput.addEventListener('keyup', searchMovies);
     }
 });
 
@@ -68,9 +72,8 @@ async function searchMovies() {
 }
 
 // Add event listener for keyup and Enter key press
-document.addEventListener('DOMContentLoaded', () => {
+
 searchInput.addEventListener('keyup', searchMovies);
-})
 // Listen for Enter key press and trigger search
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
