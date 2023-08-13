@@ -67,14 +67,15 @@ if (searchButton) {
 // Add event listener for keyup and Enter key press
 if(searchInput){
 searchInput.addEventListener('keyup', searchMovies);
-}
-// Listen for Enter key press and trigger search
+    // Listen for Enter key press and trigger search
 searchInput.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
-        event.preventDefault(); // Prevent form submission
-        searchMovies();
-    }
-});
+        if (event.key === 'Enter') {
+            event.preventDefault(); // Prevent form submission
+            searchMovies();
+        }
+    });
+}
+
 
 // Function to create a movie element
 function createMovieElement(movie, isSearchResult) {
