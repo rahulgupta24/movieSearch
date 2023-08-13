@@ -3,6 +3,7 @@
 // Define apiKey
 const apiKey = '';
 
+document.addEventListener('DOMContentLoaded', () => {
 // DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
@@ -195,3 +196,5 @@ async function viewMovieDetails() {
         <p><strong>Plot:</strong> ${movieDetails.Plot}</p>
     `;
 }
+
+});
