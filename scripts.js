@@ -7,10 +7,12 @@ const apiKey = '';
 // DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
-const viewFavoritesButton = document.getElementById('viewFavoritesButton');
+//const viewFavoritesButton = document.getElementById('viewFavoritesButton');
 const mainContent = document.getElementById('mainContent');
 const searchResults = document.getElementById('searchResults');
 const favoritesList = document.getElementById('favoritesList');
+
+const viewFavoritesButton = document.querySelector('#viewFavoritesButton');
 console.log('favoritesList', favoritesList)
 const detailsContainer = document.getElementById('movieDetailsContainer');
 
@@ -23,7 +25,6 @@ if (searchButton) {
 }
 
 if (viewFavoritesButton) {
-    console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
         window.location.href = 'my-favorites.html';
     });
