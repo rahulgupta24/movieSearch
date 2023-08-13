@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '';
+const apiKey = '7b75ecdd';
 
 
 // DOM elements
@@ -11,7 +11,6 @@ const searchButton = document.getElementById('searchButton');
 const mainContent = document.getElementById('mainContent');
 const searchResults = document.getElementById('searchResults');
 const favoritesList = document.getElementById('favoritesList');
-const viewFavoritesButton = document.querySelector('#viewFavoritesButton');
 console.log('favoritesList', favoritesList)
 const detailsContainer = document.getElementById('movieDetailsContainer');
 
@@ -22,8 +21,9 @@ const detailsContainer = document.getElementById('movieDetailsContainer');
 if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
 }
-
+const viewFavoritesButton = document.querySelector('#viewFavoritesButton')
 if (viewFavoritesButton) {
+    console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
         window.location.href = 'my-favorites.html';
     });
