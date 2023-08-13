@@ -68,9 +68,9 @@ async function searchMovies() {
 }
 
 // Add event listener for keyup and Enter key press
-
+document.addEventListener('DOMContentLoaded', () => {
 searchInput.addEventListener('keyup', searchMovies);
-
+})
 // Listen for Enter key press and trigger search
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
