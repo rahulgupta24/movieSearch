@@ -32,10 +32,10 @@ if (viewFavoritesButton) {
 }
 });
 
-// Add event listener on my-favorites.html
+// Add event listeners
 if (window.location.pathname === '/my-favorites.html') {
-    // Add event listeners
     document.addEventListener('DOMContentLoaded', () => {
+        const favoritesList = document.getElementById('favoritesList');
         if (favoritesList) {
             favoritesList.addEventListener('click', (event) => {
                 const target = event.target;
@@ -118,15 +118,11 @@ function createMovieElement(movie, isSearchResult) {
 
     return movieElement;
 }
+
 // Add event listener on movie-details.html
 if (window.location.pathname.includes('/movie-details.html')) {
     document.addEventListener('DOMContentLoaded', () => {
-        const viewDetailsBtn = document.getElementById('viewDetails');
-        if (viewDetailsBtn) {
-            viewDetailsBtn.addEventListener('click', () => {
-                viewMovieDetails();
-            });
-        }
+        viewMovieDetails();
     });
 }
 
