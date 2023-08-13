@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 
 // DOM elements
@@ -14,10 +14,7 @@ const favoritesList = document.getElementById('favoritesList');
 console.log('favoritesList', favoritesList)
 const detailsContainer = document.getElementById('movieDetailsContainer');
 
-
 // Get the base URL of the current environment
-
-
 
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
@@ -68,8 +65,9 @@ if (searchButton) {
 }
 
 // Add event listener for keyup and Enter key press
+if(searchInput){
 searchInput.addEventListener('keyup', searchMovies);
-
+}
 // Listen for Enter key press and trigger search
 searchInput.addEventListener('keydown', (event) => {
     if (event.key === 'Enter') {
