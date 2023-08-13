@@ -30,7 +30,7 @@ const apiKey = '7b75ecdd';
     }
 
     // Add event listener on my-favorites.html
-    if (window.location.pathname === '/my-favorites.html') {
+    if (window.location.pathname === 'movieSearch/my-favorites.html') {
         document.addEventListener('DOMContentLoaded', () => {
             const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
             console.log('fav', favorites);
@@ -43,6 +43,7 @@ const apiKey = '7b75ecdd';
     // Function to search movies
     async function searchMovies() {
         const searchTerm = searchInput.value;
+
 
         // Clear the previous timeout to prevent unnecessary requests
         clearTimeout(searchTimeout);
