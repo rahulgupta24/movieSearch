@@ -22,29 +22,19 @@ if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
 }
 
-// Add event listeners
-document.addEventListener('DOMContentLoaded', () => {
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
         window.location.href = 'my-favorites.html';
     });
 }
-});
 
-// Add event listeners
+// Add event listener on my-favorites.html
 if (window.location.pathname === '/my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
-        const favoritesList = document.getElementById('favoritesList');
-        if (favoritesList) {
-            favoritesList.addEventListener('click', (event) => {
-                const target = event.target;
-                if (target.classList.contains('remove-from-favorites')) {
-                    const movieId = target.dataset.movieId;
-                    removeFromFavorites(movieId);
-                }
-            });
-        }
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        console.log('fav', favorites);
+        displayFavorites(favorites);
     });
 }
 
