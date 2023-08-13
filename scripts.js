@@ -3,7 +3,8 @@
 // Define apiKey
 const apiKey = '';
 
-document.addEventListener('DOMContentLoaded', () => {
+// Get the base URL of the current environment
+const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
 // DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
@@ -16,7 +17,7 @@ const detailsContainer = document.getElementById('movieDetailsContainer');
 
 
 // Get the base URL of the current environment
-
+document.addEventListener('DOMContentLoaded', () => {
 // Add event listeners
 if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
@@ -25,12 +26,14 @@ if (searchButton) {
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
-        window.location.href = 'my-favorites.html';
+        window.location.href =baseURL +  'my-favorites.html';
     });
 }
 
+
+
 // Add event listener on my-favorites.html
-if (window.location.pathname === '/my-favorites.html') {
+if (window.location.pathname === baseURL+ '/my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         console.log('fav',favorites);
@@ -103,14 +106,14 @@ function createMovieElement(movie, isSearchResult) {
     const viewDetailsBtn = movieElement.querySelector('.view-details');
     console.log('viewDetails',viewDetailsBtn);
     viewDetailsBtn.addEventListener('click', () => {
-        window.location.href = `movie-details.html?id=${movie.imdbID}`;
+        window.location.href =baseURL +  `movie-details.html?id=${movie.imdbID}`;
     });
 
     return movieElement;
 }
 
 // Add event listener on movie-details.html
-if (window.location.pathname.includes('/movie-details.html')) {
+if (window.location.pathname.includes(baseURL + '/movie-details.html')) {
     document.addEventListener('DOMContentLoaded', () => {
         viewMovieDetails();
     });
@@ -196,5 +199,3 @@ async function viewMovieDetails() {
         <p><strong>Plot:</strong> ${movieDetails.Plot}</p>
     `;
 }
-
-});
