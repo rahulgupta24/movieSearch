@@ -1,7 +1,7 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '7b75ecdd';
+const apiKey = '';
 
 
 // DOM elements
@@ -34,8 +34,8 @@ if (viewFavoritesButton) {
 
 // Add event listener on my-favorites.html
 if (window.location.pathname === '/my-favorites.html') {
+    // Add event listeners
     document.addEventListener('DOMContentLoaded', () => {
-        const favoritesList = document.getElementById('favoritesList')
         if (favoritesList) {
             favoritesList.addEventListener('click', (event) => {
                 const target = event.target;
