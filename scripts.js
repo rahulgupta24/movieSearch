@@ -30,7 +30,7 @@ if (viewFavoritesButton) {
 }
 
 // Add event listener on my-favorites.html
-if (window.location.pathname === '/my-favorites.html') {
+if (window.location.pathname === './my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         console.log('fav', favorites);
@@ -110,7 +110,7 @@ function createMovieElement(movie, isSearchResult) {
 }
 
 // Add event listener on movie-details.html
-if (window.location.pathname.includes('/movie-details.html')) {
+if (window.location.pathname.includes('./movie-details.html')) {
     document.addEventListener('DOMContentLoaded', () => {
         viewMovieDetails();
     });
