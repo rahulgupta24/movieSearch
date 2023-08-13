@@ -3,8 +3,11 @@
 // Define apiKey
 const apiKey = '';
 
-// Get the base URL of the current environment
-const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
+// Function to construct the correct URL based on the environment
+function constructURL(path) {
+    const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
+    return baseURL + path;
+}
 // DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
@@ -33,7 +36,7 @@ if (viewFavoritesButton) {
 
 
 // Add event listener on my-favorites.html
-if (window.location.pathname === baseURL+ '/my-favorites.html') {
+if (window.location.pathname === constructURL('my-favorites.html')) {
     document.addEventListener('DOMContentLoaded', () => {
         const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         console.log('fav',favorites);
@@ -113,7 +116,7 @@ function createMovieElement(movie, isSearchResult) {
 }
 
 // Add event listener on movie-details.html
-if (window.location.pathname.includes(baseURL + '/movie-details.html')) {
+if (window.location.pathname.includes(constructURL('/movie-details.html'))) {
     document.addEventListener('DOMContentLoaded', () => {
         viewMovieDetails();
     });
