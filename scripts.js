@@ -1,13 +1,12 @@
 // scripts.js
 
 // Define apiKey
-const apiKey = '';
+const apiKey = '7b75ecdd';
 
 // Function to construct the correct URL based on the environment
-function constructURL(path) {
-    const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
-    return baseURL + path;
-}
+
+const baseURL = window.location.href.replace(/\/[^\/]*$/, '/');
+
 // DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
