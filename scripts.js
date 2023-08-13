@@ -103,7 +103,7 @@ function createMovieElement(movie, isSearchResult) {
     const viewDetailsBtn = movieElement.querySelector('.view-details');
     console.log('viewDetails', viewDetailsBtn);
     viewDetailsBtn.addEventListener('click', () => {
-        window.location.href = `movie-details.html?id=${movie.imdbID}`;
+        window.location.href = `./movie-details.html?id=${movie.imdbID}`;
     });
 
     return movieElement;
