@@ -7,7 +7,7 @@ const apiKey = '7b75ecdd';
 // DOM elements
 const searchInput = document.getElementById('searchInput');
 const searchButton = document.getElementById('searchButton');
-//const viewFavoritesButton = document.getElementById('viewFavoritesButton');
+const viewFavoritesButton = document.getElementById('viewFavoritesButton');
 const mainContent = document.getElementById('mainContent');
 const searchResults = document.getElementById('searchResults');
 const favoritesList = document.getElementById('favoritesList');
@@ -21,7 +21,7 @@ const detailsContainer = document.getElementById('movieDetailsContainer');
 if (searchButton) {
     searchButton.addEventListener('click', searchMovies);
 }
-const viewFavoritesButton = document.querySelector('#viewFavoritesButton')
+
 if (viewFavoritesButton) {
     console.log('viewFavoritesButton', viewFavoritesButton)
     viewFavoritesButton.addEventListener('click', () => {
