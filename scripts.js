@@ -24,7 +24,7 @@ if (viewFavoritesButton) {
 // Add event listener on my-favorites.html
 if (window.location.pathname === '/movieSearch/my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
         displayFavorites(favorites);
     });
 }
@@ -87,7 +87,7 @@ function createMovieElement(movie, isSearchResult) {
         addToFavorites(movie, addToFavoritesBtn, isSearchResult);
     });
 
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
     if (favorites.some(favMovie => favMovie.imdbID === movie.imdbID)) {
         addToFavoritesBtn.textContent = 'Added to Favorites';
         addToFavoritesBtn.disabled = true;
@@ -110,12 +110,12 @@ if (window.location.pathname.includes('/movie-details.html')) {
 
 // Function to add a movie to favorites
 function addToFavorites(movie, button, isSearchResult) {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
     const isAlreadyAdded = favorites.some(favMovie => favMovie.imdbID === movie.imdbID);
 
     if (!isAlreadyAdded) {
         favorites.push(movie);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
+        sessionStorage.setItem('favorites', JSON.stringify(favorites));
 
         button.textContent = 'Added to Favorites';
         button.disabled = true;
@@ -160,9 +160,9 @@ function createFavoriteMovieElement(movie) {
 
 // Function to remove a movie from favorites
 function removeFromFavorites(movie, element) {
-    const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+    const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
     const updatedFavorites = favorites.filter(favMovie => favMovie.imdbID !== movie.imdbID);
-    localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
+    sessionStorage.setItem('favorites', JSON.stringify(updatedFavorites));
 
     element.remove();
 }
