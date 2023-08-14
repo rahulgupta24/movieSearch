@@ -26,7 +26,7 @@ if (viewFavoritesButton) {
 // Add event listener on my-favorites.html
 if (window.location.pathname === '/my-favorites.html') {
     document.addEventListener('DOMContentLoaded', () => {
-        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+        const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
         console.log('fav', favorites);
         displayFavorites(favorites);
     });
@@ -67,13 +67,13 @@ if (searchButton) {
 // Add event listener for keyup and Enter key press
 if(searchInput){
 searchInput.addEventListener('keyup', searchMovies);
-    // Listen for Enter key press and trigger search
+// Listen for Enter key press and trigger search
 searchInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault(); // Prevent form submission
-            searchMovies();
-        }
-    });
+    if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent form submission
+        searchMovies();
+    }
+});
 }
 
 
@@ -103,7 +103,7 @@ function createMovieElement(movie, isSearchResult) {
     const viewDetailsBtn = movieElement.querySelector('.view-details');
     console.log('viewDetails', viewDetailsBtn);
     viewDetailsBtn.addEventListener('click', () => {
-        window.location.href = `./movie-details.html?id=${movie.imdbID}`;
+        window.location.href = `movie-details.html?id=${movie.imdbID}`;
     });
 
     return movieElement;
