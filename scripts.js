@@ -25,8 +25,9 @@ if (viewFavoritesButton) {
 
 // Add event listener on my-favorites.html
 if (window.location.pathname === '/my-favorites.html') {
+    console.log('hello.......')
     document.addEventListener('DOMContentLoaded', () => {
-        const favorites = JSON.parse(sessionStorage.getItem('favorites')) || [];
+        const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
         console.log('fav', favorites);
         displayFavorites(favorites);
     });
