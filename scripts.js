@@ -22,7 +22,7 @@ if (viewFavoritesButton) {
         window.location.href = 'my-favorites.html';
     });
 }
-
+console.log('window.location.pathname', window.location.pathname)
 // Add event listener on my-favorites.html
 if (window.location.pathname === '/my-favorites.html') {
     console.log('hello.......')
